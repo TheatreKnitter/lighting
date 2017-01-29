@@ -1,0 +1,24 @@
+{
+  "name": "lighting",
+  "version": "1.0.0",
+  "description": "node.js capstone for thinkful.com fullstack bootcamp",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "lighting",
+    "olympics",
+    "inventory"
+  ],
+  "author": "Liz Coleman",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.2.0"
+  }
+}
