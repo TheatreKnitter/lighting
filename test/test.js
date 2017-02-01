@@ -10,7 +10,7 @@ var storage = server.storage;
 
 chai.use(chaiHttp);
 
-describe('index page', function() {
+//describe('index page', function() {
   it('exists', function(done) {
     chai.request(app)
       .get('/')
@@ -20,4 +20,4 @@ describe('index page', function() {
         done();
     });
   });
-});
+//});
