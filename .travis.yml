@@ -8,3 +8,10 @@ addons:
     - mongodb-3.2-precise
     packages:
     - mongodb-org-server
+deploy:
+  provider: heroku
+  api_key:
+    secure: dkLvfNE2nbprGoGRwqV9oxEDsL3BCfXegCUlVLVPoFo+trOL+iRFMLkdrYaT5aPbcfzkbsXpJBLrqBRtsYMP9hCdBJT4wtmAehSSaX9bSxlVvuJKqcR2QIAKXGRRtKbn9PFMb5o14i41WLV51IkIUDhn5Z5uOCG6Yp5IM2U4R9+JSGOvreFXP30+xfVkNX6PkAHD7gPl2ykxI8vk+ALQGNkH8ORHxGg6Fa2Ma0QPYGLzo+RuSThpYDwPyAtPMaalcZYlE57R7z7GfC2Ma4hfGlx3L54KoT5rBrpMmmTWfsUJ1KJ98hdx8X2mrlXiiE02MPok1ZiC1WBkfzw0JmI2QphNce5kvnQAyAPiHD+qwedJC5NjrruTnQQ50Z06FGxVHC+X4MxyA9PvA/Fdc6tDa+5GLNtmQM33NKw0F9zb5uXHMyE/rzOPAWTld4ufWEMM39VTrOeKszt3k/tfzvpXXUNnO1D9dWiWvcWXv5Z8vewQGiXLFyvdOGb/PLivBmhdvZTBSA3T0pwe4nlmNJtpndc/o1290k1jj3XLpAABVP860xu1WRXg5C76alz2We//5FCX+lUhyPVydU5R5Se9DTvkryOD+kVPPyTzE/9HA4S/WuqlsU14gwvDqLty7ggtKk8RZbGYbSHh3Wv3mBRyhiDPRvIrimL00SPgPLbOB9s=
+  app: olympic-lighting
+  on:
+    repo: TheatreKnitter/lighting
