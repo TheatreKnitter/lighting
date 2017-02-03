@@ -34,25 +34,25 @@ var MOCK_INSTRUMENTS = {
         },
 
 
-function getinstruments(callbackFn) {
-    setTimeout(function(){ callbackFn(MOCK_STATUS_UPDATES)}, 100);
-}
-
 // this function stays the same when we connect
 // to real API later
-function displayStatusUpdates(data) {
+function displayInstruments(data) {
     for (index in data.statusUpdates) {
        $('body').append(
-        '<p>' + data.statusUpdates[index].text + '</p>');
+        '<p>' + data.instrument[type, manufacturer, studio].text + '</p>');
     }
 }
 
-// this function can stay the same even when we
-// are connecting to real API
-function getAndDisplayStatusUpdates() {
-    getRecentStatusUpdates(displayStatusUpdates);
-}
 
-$(function() {
-    getAndDisplayStatusUpdates();
-})
+//function to add new instrument 
+
+
+//function to change venue on instruments
+
+
+
+//function to delete instrument
+
+$(document).ready(function){
+    displayInstruments;
+}
