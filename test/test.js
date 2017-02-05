@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 //describe('index page', function() {
   it('exists', function(done) {
     chai.request(app)
-      .get('/')
+      .get('/index')
       .end(function(err, res) {
         res.should.have.status(200);
         res.should.be.html;
@@ -21,3 +21,13 @@ chai.use(chaiHttp);
     });
   });
 //});
+
+it('exists', function(done) {
+    chai.request(app)
+      .get('/add-delete.html')
+      .end(function(err, res) {
+        res.should.have.status(200);
+        res.should.be.html;
+        done();
+    });
+  });
