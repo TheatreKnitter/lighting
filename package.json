@@ -14,7 +14,8 @@
   "author": "Liz Coleman",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.14.1"
+    "express": "^4.14.1",
+    "mongoose": "^4.8.1"
   },
   "devDependencies": {
     "chai": "^3.5.0",

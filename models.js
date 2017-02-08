@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const instrumentSchema = mongoose.Schema({
-  type: {type: String},
+  model: {type: String},
   company: {type: String},
   partNumber: {type: Number},
   serial: {type: Number},
@@ -11,7 +11,7 @@ const instrumentSchema = mongoose.Schema({
 instrumentSchema.methods.apiRepr = function() {
   return {
     id: this._id,
-    type: this.type,
+    model: this.model,
     company: this.company,
     partNumber: this.partNumber,
     serial: this.serial,
