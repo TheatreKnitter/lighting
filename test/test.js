@@ -68,7 +68,7 @@ describe('instrument', function() {
                 res.body.company.should.be.a('string');
                 res.body.loc.should.be.a('string');
                 res.body.should.have.property('partNumber');
-                done();
             });
+            done();
     });
 });
