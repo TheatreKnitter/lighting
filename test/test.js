@@ -34,6 +34,7 @@ it('exists', function(done) {
 
 
 describe('instrument', function() {
+  this.timeout(15000);
     /*it('should list items on GET', function(done) {
         chai.request(app)
             .post('/instruments')
