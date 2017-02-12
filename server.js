@@ -2,12 +2,11 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-/*const {DATABASE_URL, PORT} = require('./config');
-const {Instrument} = require('./models');*/
+//const {DATABASE_URL, PORT} = require('./config');
+const {Instrument} = require('./models');
 const config = require("./config");
 const DATABASE_URL = config.DATABASE_URL;
 const PORT = config.PORT;
-const Instrument = require("./models")
 
 const app = express();
 app.use(express.static('public'));
