@@ -65,7 +65,6 @@ app.post('/instruments', (req,res) => {
 
 
 
-
 app.delete('/posts/:id', (req, res) => {
   Instrument
     .findByIdAndRemove(req.params.id)
