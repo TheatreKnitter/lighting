@@ -57,6 +57,7 @@ describe('instrument', function() {
                    "company": "ETC",
                   "loc": "Beach volleyball",})
             .end(function(err, res) {
+                console.log(err);
                 should.equal(err, null);
                 res.should.have.status(201);
                 res.should.be.json;
