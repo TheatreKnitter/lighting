@@ -2,8 +2,12 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-const {DATABASE_URL, PORT} = require('./config');
-const {Instrument} = require('./models');
+/*const {DATABASE_URL, PORT} = require('./config');
+const {Instrument} = require('./models');*/
+const config = require("./config");
+const DATABASE_URL = config.DATABASE_URL;
+const PORT = config.PORT;
+const Instrument = require("./models")
 
 const app = express();
 app.use(express.static('public'));
@@ -101,17 +105,17 @@ app.delete('/posts/:id', (req, res) => {
 // closeServer needs access to a server object, but that only
 // gets created when `runServer` runs, so we declare `server` here
 // and then assign a value to it in run
-let server;
+var server;
 
 // this function connects to our database, then starts the server
-function runServer(databaseUrl=DATABASE_URL, port=PORT) {
+function runServer(callback) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(databaseUrl, err => {
+    mongoose.connect(DATABASE_URL, err => {
       if (err) {
         return reject(err);
       }
-      server = app.listen(port, () => {
-        console.log(`Your app is listening on port ${port}`);
+      server = app.listen(PORT, () => {
+        console.log(`Your app is listening on port ${PORT}`);
         resolve();
       })
       .on('error', err => {

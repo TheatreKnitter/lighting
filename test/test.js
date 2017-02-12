@@ -34,7 +34,7 @@ it('exists', function(done) {
 
 
 describe('instrument', function() {
-    it('should list items on GET', function(done) {
+    /*it('should list items on GET', function(done) {
         chai.request(app)
             .post('/instruments')
             .send({'id': '0008'})
@@ -48,7 +48,7 @@ describe('instrument', function() {
                 res.body.id.should.be.a('number');
                 done();
             });
-    });
+    });*/
     
     it('should add an item on POST', function(done) {
         chai.request(app)
