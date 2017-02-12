@@ -1,7 +1,8 @@
-var mongoose = require('mongoose');
+/*var mongoose = require('mongoose');
 var schema = require('./models.js')
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds143539.mlab.com:43539/olympic-lighting');
+mongoose.connect('mongodb://dbuser:dbpassword@ds143539.mlab.com:43539/olympic-lighting');
+const {instrument
 
 
 mongoose.connection.on('error', function(err) {
@@ -9,7 +10,7 @@ mongoose.connection.on('error', function(err) {
 });
 
 mongoose.connection.once('open', function() {
-   var instrumentSchema = mongoose.Schema
+   const
 });
 
 var create = function(serial, location) {
@@ -60,4 +61,10 @@ var del = function(serial, location) {
         console.log("Deleted instrument", instrument.serial);
         mongoose.disconnect();
     });
-};
+};*/
+
+exports.DATABASE_URL = process.env.DATABASE_URL ||
+                        global.DATABASE_URL || 
+                        'mongodb://dbuser:dbpassword@ds143539.mlab.com:43539/olympic-lighting';
+
+exports.PORT = process.env.PORT || 8080;

@@ -1,65 +1,73 @@
-// JavaScript File
-app.use(express.static('public'));
-app.listen(process.env.PORT || 8080);
-
-exports.app = app;
-
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
-
+mongoose.Promise = global.Promise;
 const {DATABASE_URL, PORT} = require('./config');
 const {Instrument} = require('./models');
 
 const app = express();
-
+app.use(express.static('public'));
 app.use(bodyParser.json());
 
-mongoose.Promise = global.Promise;
 
 
-app.get('/posts', (req, res) => {
-  Instrument
+
+app.get('/instruments', (req, res) => {
+    Instrument
     .find()
+    //.limit(10)
     .exec()
-    .then(posts => {
-      res.json(posts.map(post => post.apiRepr()));
+    .then(instruments => {
+        res.json({
+            instruments: instruments.map(
+                (instrument) => instrument.apiRepr())
+        });
+    })
+    .catch(
+        err => {
+            console.error(err);
+            res.status(500).json({message: 'internal server error'});
+        });
+});
+
+
+app.get('/instruments/:id', (req, res) => {
+  Instrument
+    .findById(req.params.id)
+    .exec()
+    .then(instruments => {
+        res.json({
+          instruments: instruments.map(
+                (instrument) => instrument.apiRepr())
+        });
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({error: 'something went terribly wrong'});
-    });
-});
-
-app.get('/posts/:id', (req, res) => {
-  Instrument
-    .findByserial(req.params.serial)
-    .exec()
-    .then(post => res.json(post.apiRepr()))
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({error: 'something went horribly awry'});
+      res.status(500).json({error: 'internal server error'});
     });
 });
 
 
+app.post('/instruments', (req,res) => {
   Instrument
     .create({
       model: req.body.model,
       company: req.body.company,
-      serial: req.body.serial
+      location: req.body.loc,
     })
     .then(Instrument => res.status(201).json(Instrument.apiRepr()))
     .catch(err => {
         console.error(err);
         res.status(500).json({error: 'Something went wrong'});
-    });
+    });  
+});  
 
-});
+
+
 
 
 app.delete('/posts/:id', (req, res) => {
-  BlogPost
+  Instrument
     .findByIdAndRemove(req.params.id)
     .exec()
     .then(() => {
@@ -72,43 +80,24 @@ app.delete('/posts/:id', (req, res) => {
 });
 
 
-app.put('/posts/:id', (req, res) => {
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-    res.status(400).json({
-      error: 'Request path id and request body id values must match'
-    });
-  }
-
-  const updated = {};
-  const updateableFields = ['title', 'content', 'author'];
+/*  const updated = {};
+  const updateableFields = ['location', 'id'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
     }
   });
 
-  BlogPost
+  Instrument
     .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
     .catch(err => res.status(500).json({message: 'Something went wrong'}));
-});
+});*/
 
 
-app.delete('/:id', (req, res) => {
-  BlogPosts
-    .findByIdAndRemove(req.params.id)
-    .exec()
-    .then(() => {
-      console.log(`Deleted blog post with id \`${req.params.ID}\``);
-      res.status(204).end();
-    });
-});
 
 
-app.use('*', function(req, res) {
-  res.status(404).json({message: 'Not Found'});
-});
 
 // closeServer needs access to a server object, but that only
 // gets created when `runServer` runs, so we declare `server` here

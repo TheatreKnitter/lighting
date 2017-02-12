@@ -4,7 +4,7 @@ const instrumentSchema = mongoose.Schema({
   model: {type: String},
   company: {type: String},
   partNumber: {type: Number},
-  serial: {type: Number},
+  id: {type: Number},
   location: {type: String}
 });
 
@@ -15,7 +15,7 @@ instrumentSchema.methods.apiRepr = function() {
     company: this.company,
     partNumber: this.partNumber,
     serial: this.serial,
-    location: this.location
+    location: this.loc
   };
 };
 
