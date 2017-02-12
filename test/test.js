@@ -34,8 +34,7 @@ it('exists', function(done) {
 
 
 describe('instrument', function() {
-  this.timeout(15000);
-    /*it('should list items on GET', function(done) {
+    it('should list items on GET', function(done) {
         chai.request(app)
             .post('/instruments')
             .send({'id': '0008'})
@@ -47,9 +46,10 @@ describe('instrument', function() {
                 res.body.should.have.property('type');
                 res.body.manufacturer.should.be.a('string');
                 res.body.id.should.be.a('number');
-                done();
+                
             });
-    });*/
+            done();
+    });
     
     it('should add an item on POST', function(done) {
         chai.request(app)
