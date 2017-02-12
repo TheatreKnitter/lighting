@@ -52,7 +52,7 @@ describe('instrument', function() {
     
     it('should add an item on POST', function(done) {
         chai.request(app)
-            .post('/items')
+            .post('/instruments')
             .send({"model": "10K",
                    "company": "ETC",
                   "loc": "Beach volleyball",})
