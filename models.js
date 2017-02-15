@@ -14,7 +14,6 @@ instrumentSchema.methods.apiRepr = function() {
     model: this.model,
     company: this.company,
     partNumber: this.partNumber,
-    serial: this.serial,
     location: this.loc
   };
 };

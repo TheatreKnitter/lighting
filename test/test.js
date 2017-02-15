@@ -56,7 +56,29 @@ describe('instrument', function() {
             .post('/instruments')
             .send({"model": "10K",
                    "company": "ETC",
-                  "loc": "Beach volleyball",})
+                   "loc": "Beach volleyball",
+            });
+            .end(function(err, res) {
+                console.log(err);
+                should.equal(err, null);
+                res.should.have.status(201);
+                res.should.be.json;
+                res.body.should.be.a('object');
+                res.body.should.have.property('id');
+                res.body.model.should.be.a('string');
+                res.body.company.should.be.a('string');
+                res.body.loc.should.be.a('string');
+                res.body.should.have.property('partNumber');
+            });
+            done();
+    });
+    
+    it('should edit an item on PUT', function(done) {
+        chai.request(app)
+            .put('/instruments/0003')
+            .send({"model": "10K",
+                   "company": "ETC",
+                  "loc": "Studio",})
             .end(function(err, res) {
                 console.log(err);
                 should.equal(err, null);

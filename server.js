@@ -65,6 +65,22 @@ app.post('/instruments', (req,res) => {
     });  
 });  
 
+app.put('/posts/:id', (req, res) => {
+  const updated = {};
+  const updateableField = ['location'];
+  updateableField.forEach(field => {
+    if (field in req.body) {
+      updated[field] = req.body[field];
+    }
+  });
+
+  Instrument
+    .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
+    .exec()
+    .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
+    .catch(err => res.status(500).json({message: 'Something went wrong'}));
+});
+
 
 
 
@@ -90,12 +106,7 @@ app.delete('/posts/:id', (req, res) => {
     }
   });
 
-  Instrument
-    .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
-    .exec()
-    .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
-    .catch(err => res.status(500).json({message: 'Something went wrong'}));
-});*/
+*/
 
 
 
