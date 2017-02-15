@@ -57,7 +57,7 @@ describe('instrument', function() {
             .send({"model": "10K",
                    "company": "ETC",
                    "loc": "Beach volleyball",
-            });
+            })
             .end(function(err, res) {
                 console.log(err);
                 should.equal(err, null);
