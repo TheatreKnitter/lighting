@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+    getInstruments
 });
 
 var getInstruments = function(instrument) {
