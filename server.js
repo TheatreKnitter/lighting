@@ -29,7 +29,7 @@ app.get('/instruments', (req, res) => {
     .catch(
         err => {
             console.error(err);
-            res.status(500).json({message: 'internal server error'});
+            res.status(500).json(err);
         });
 });
 
@@ -46,7 +46,7 @@ app.get('/instruments/:id', (req, res) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({error: 'internal server error'});
+      res.status(500).json(err);
     });
 });
 
@@ -61,7 +61,7 @@ app.post('/instruments', (req,res) => {
     .then(Instrument => res.status(201).json(Instrument.apiRepr()))
     .catch(err => {
         console.error(err);
-        res.status(500).json({error: 'Something went wrong'});
+        res.status(500).json(err);
     });  
 });  
 
@@ -78,7 +78,7 @@ app.put('/posts/:id', (req, res) => {
     .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
-    .catch(err => res.status(500).json({message: 'Something went wrong'}));
+    .catch(err => res.status(500).json(err));
 });
 
 
@@ -93,7 +93,7 @@ app.delete('/posts/:id', (req, res) => {
     })
     .catch(err => {
       console.error(err);
-      res.status(500).json({error: 'something went terribly wrong'});
+      res.status(500).json(err);
     });
 });
 

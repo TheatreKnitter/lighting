@@ -36,21 +36,31 @@ it('exists', function(done) {
 describe('instrument', function() {
     it('should list items on GET', function(done) {
         chai.request(app)
-            .post('/instruments')
-            .send({'id': '0008'})
+            .get('/instruments')
             .end(function(err, res) {
                 should.equal(err, null);
                 res.should.have.status(201);
                 res.should.be.json;
-                res.body.should.be.a('number');
-                res.body.should.have.property('type');
-                res.body.manufacturer.should.be.a('string');
-                res.body.id.should.be.a('number');
-                
+                res.body.instruments.should.be.instanceof('Array');
             });
             done();
     });
     
+    it('should list items on GET', function(done) {
+        chai.request(app)
+            .get('/instruments/0008')
+            .end(function(err, res) {
+                should.equal(err, null);
+                res.should.have.status(201);
+                res.should.be.json;
+                res.body.model.should.equal('M40 HMI Fresnel');
+                res.body.company.should.equal('Arri Lighting Inc.');
+                res.body.loc.should.equal('Storage');
+            });
+            done();
+    });
+    
+
     it('should add an item on POST', function(done) {
         chai.request(app)
             .post('/instruments')
@@ -91,6 +101,24 @@ describe('instrument', function() {
                 res.body.loc.should.be.a('string');
                 res.body.should.have.property('partNumber');
             });
+            done();
+    });
+    
+    it('should delete an item on delete', function(done) {
+        chai.request(app)
+            .delete('/instruments/0010')
+            .send({'id': 8})
+            .end(function(err,res) {
+                should.equal(err, null);
+                res.should.have.status(200);
+                res.should.be.json;
+                res.body.should.be.a('object');
+                res.body.should.have.property('location');
+                res.body.should.have.property('id');
+                res.body.should.have.property('company');
+                res.body.id.should.be.a('number');
+                res.body.model.should.equal('M40 HMI Fresnel');
+            }); 
             done();
     });
 });
