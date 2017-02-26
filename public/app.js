@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    getInstruments(instrument);
+	var instrument = $(this).find(itemNum)
+    showInstruments(instrument);
     console.log(instrument);
 });
 
@@ -27,8 +28,8 @@ var getInstruments = function(instrument) {
 
 var showInstruments = function(instrument){
 	var template = $('.templates').clone();
-	template.find('.results').append('<td class="Id"></td>');
-	template.find('.Id').text(instrument.id);
+	template.find('.results').append('<td class="itemNum"></td>');
+	template.find('.itemNum').text(instrument.itemNum);
 	template.find('.results').append('<td class="Model"></td>');
 	template.find('.Model').text(instrument.model);
 	template.find('.results').append('<td class="Company"></td>');

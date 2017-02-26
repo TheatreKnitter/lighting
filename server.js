@@ -34,9 +34,9 @@ app.get('/instruments', (req, res) => {
 });
 
 
-app.get('/instruments/:id', (req, res) => {
+app.get('/instruments/:itemNum', (req, res) => {
   Instrument
-    .findById(req.params.id)
+    .findByitemNum(req.params.itemNum)
     .exec()
     .then(instruments => {
         res.json({
@@ -65,7 +65,7 @@ app.post('/instruments', (req,res) => {
     });  
 });  
 
-app.put('/posts/:id', (req, res) => {
+app.put('/posts/:itemNum', (req, res) => {
   const updated = {};
   const updateableField = ['location'];
   updateableField.forEach(field => {
@@ -75,7 +75,7 @@ app.put('/posts/:id', (req, res) => {
   });
 
   Instrument
-    .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
+    .findByitemNumAndUpdate(req.params.itemNum, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
     .catch(err => res.status(500).json(err));
@@ -84,9 +84,9 @@ app.put('/posts/:id', (req, res) => {
 
 
 
-app.delete('/posts/:id', (req, res) => {
+app.delete('/posts/:itemNum', (req, res) => {
   Instrument
-    .findByIdAndRemove(req.params.id)
+    .findByitemNumAndRemove(req.params.itemNum)
     .exec()
     .then(() => {
       res.status(204).json({message: 'success'});
@@ -99,7 +99,7 @@ app.delete('/posts/:id', (req, res) => {
 
 
 /*  const updated = {};
-  const updateableFields = ['location', 'id'];
+  const updateableFields = ['location', 'itemNum'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
