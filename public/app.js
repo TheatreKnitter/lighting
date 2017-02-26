@@ -2,6 +2,10 @@ $(document).ready(function(){
     getInstruments();
 });
 
+var state = {
+	currentInstruments: []
+}
+
 var getInstruments = function() {
 
 	$.ajax({
@@ -12,6 +16,7 @@ var getInstruments = function() {
 			$.each(results, function(instrument) {
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
+				state.currentInstruments.push(instrument);
 			});
 		}
 	});
@@ -21,12 +26,12 @@ var getInstruments = function() {
 
 var showInstruments = function(instrument){
 	var row = $('tr');
-	row.append('<td class="itemNum">' + instrument.itemNum + '</td>');
-	row.append('<td class="Model">' + instrument.model + ' </td>');
-	row.append('<td class="Company">' + instrument.company + '</td>');
-	row.append('<td class="location">TO DO: add locations</td>');
+	row.append('<td class="itemNum">' + instruments.itemNum + '</td>');
+	row.append('<td class="Model">' + instruments.model + ' </td>');
+	row.append('<td class="Company">' + instruments.company + '</td>');
+	row.append('<td class="location">' + instruments.loc + '</td>');
 
-	console.log(instrument);
+	console.log(state);
 	return row;
 };
 
