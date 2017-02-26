@@ -9,7 +9,7 @@ var getInstruments = function(instrument) {
 	$.ajax({
 		dataType: 'json',
 		type: "Get",
-		url:"",
+		url:"/instruments",
 	})
 
 	.done(function(result){ 
