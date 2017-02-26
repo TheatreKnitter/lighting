@@ -4,8 +4,6 @@ $(document).ready(function(){
 
 var getInstruments = function(instrument) {
 
-	
-
 	$.ajax({
 		dataType: 'json',
 		type: "Get",
