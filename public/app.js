@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    getInstruments
+    getInstruments;
+    console.log(instruments);
 });
 
 var getInstruments = function(instrument) {
