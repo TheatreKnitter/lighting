@@ -11,7 +11,7 @@ var getInstruments = function(instrument) {
 	})
 
 	.done(function(result){ 
-		$.each(result.Similar.Results, function(instrument) {
+		$.each(result.Similar, function(instrument) {
 			var user = showInstruments(instrument);
 			$('table').append(user);
 		});
