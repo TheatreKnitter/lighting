@@ -26,10 +26,10 @@ var getInstruments = function() {
 
 var showInstruments = function(instrument){
 	var row = $('tr');
-	row.append('<td class="itemNum">' + instruments.itemNum + '</td>');
-	row.append('<td class="Model">' + instruments.model + ' </td>');
-	row.append('<td class="Company">' + instruments.company + '</td>');
-	row.append('<td class="location">' + instruments.loc + '</td>');
+	row.append('<td class="itemNum">' + instrument.itemNum + '</td>');
+	row.append('<td class="Model">' + instrument.model + ' </td>');
+	row.append('<td class="Company">' + instrument.company + '</td>');
+	row.append('<td class="location">' + instrument.loc + '</td>');
 
 	console.log(state);
 	return row;
