@@ -11,7 +11,7 @@ var getInstruments = function() {
 		success: function(results){ 
 			$.each(results, function(instrument) {
 				var row = showInstruments(instrument);
-				$('table').append(row);
+				$('#instruments').append(row);
 			});
 		}
 	});
@@ -20,16 +20,14 @@ var getInstruments = function() {
 };
 
 var showInstruments = function(instrument){
-	var template = $('.templates').clone();
-	template.find('.results').append('<td class="itemNum">' + instrument.itemNum + '</td>');
-	template.find('.results').append('<td class="Model">' + instrument.model + ' </td>');
-	template.find('.results').append('<td class="Company">' + instrument.company + '</td>');
-	template.find('.results').append('<td class="location">' + instrument.loc + '</td>');
+	var row = $('tr');
+	row.append('<td class="itemNum">' + instrument.itemNum + '</td>');
+	row.append('<td class="Model">' + instrument.model + ' </td>');
+	row.append('<td class="Company">' + instrument.company + '</td>');
+	row.append('<td class="location">TO DO: add locations</td>');
 
-	template.removeClass("templates");
-	template.removeClass("hidden");
 	console.log(instrument);
-	return template;
+	return row;
 };
 
 /*var currentModels = [];
