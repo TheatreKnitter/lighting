@@ -1,54 +1,55 @@
 $(document).ready(function(){
-    showInstruments();
+    getInstruments();
 });
 
-var getInstruments = function(instrument) {
+var getInstruments = function() {
 
 	$.ajax({
 		dataType: 'json',
-		type: "Get",
+		type: "GET",
 		url:"/instruments",
 	})
 
-	.done(function(result){ 
-		$.each(result.Similar, function(instrument) {
-			var user = showInstruments(instrument);
-			$('table').append(user);
+	.success(function(results){ 
+		$.each(results, function(instrument) {
+			var row = showInstruments(instrument);
+			$('table').append(row);
 		});
 	});
 	
 };
 
 var showInstruments = function(instrument){
-	getInstruments();
 	var template = $('.templates').clone();
-	template.find('.results').append('<td class="itemNum"></td>');
-	template.find('.itemNum').text(instrument.itemNum);
-	template.find('.results').append('<td class="Model"></td>');
-	template.find('.Model').text(instrument.model);
-	template.find('.results').append('<td class="Company"></td>');
-	template.find('.Company').text(instrument.company);
-	template.find('.results').append('<td class="location"></td>');
-	template.find('.Location').text(instrument.loc);
+	template.find('.results').append('<td class="itemNum">' + instrument.itemNum + '</td>');
+	template.find('.results').append('<td class="Model">' + instrument.model + ' </td>');
+	template.find('.results').append('<td class="Company">' + instrument.company + '</td>');
+	template.find('.results').append('<td class="location">' + instrument.loc + '</td>');
 
-	$(".search").append(template);
 	template.removeClass("templates");
-	template.removeClass("hitden");
+	template.removeClass("hidden");
 	console.log(instrument);
-
+	return template;
 };
 
+/*var currentModels = [];
+var currentInstruments = [];
+var currentLocations = [];
+
+var current = [];
+$('#some_element:selected').each(function(index, selectedObj){
+    current[index] = $(selectedObj).text();
+});
+
 var newInstrument = function(instrument){
-	$('table tr:last').after('<tr>...</tr><tr>...</tr>');	var currentModels = [];
-	var currentInstruments = [];
-	var currentLocations = [];
+	$('table tr:last').after('<tr>...</tr><tr>...</tr>');	
 	var ajax = $.ajax('/instruments', {
         type: 'GET',
         dataType: 'json'
     });
-    currentModels.push();
-    currentLocations.push();
-    currentInstruments.push();
+    currentModels.push(models);
+    currentLocations.push(locations);
+    currentCompany.push(company);
     ajax.done(this.onGetinstruments.bind(this));
 
-}
+}*/
