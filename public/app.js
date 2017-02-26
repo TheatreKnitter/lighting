@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    getInstruments;
-    console.log(getInstruments);
+    getInstruments(instrument);
+    console.log(instrument);
 });
 
 var getInstruments = function(instrument) {
@@ -19,6 +19,10 @@ var getInstruments = function(instrument) {
 			$('table').append(user);
 		});
 	});
+	
+	function logResults(json){
+		console.log(json);
+	};
 };
 
 var showInstruments = function(instrument){
