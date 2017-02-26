@@ -37,3 +37,18 @@ var showInstruments = function(instrument){
 	console.log(instrument);
 
 };
+
+var newInstrument = function(instrument){
+	$('table tr:last').after('<tr>...</tr><tr>...</tr>');	var currentModels = [];
+	var currentInstruments = [];
+	var currentLocations = [];
+	var ajax = $.ajax('/instruments', {
+        type: 'GET',
+        dataType: 'json'
+    });
+    currentModels.push();
+    currentLocations.push();
+    currentInstruments.push();
+    ajax.done(this.onGetinstruments.bind(this));
+
+}
