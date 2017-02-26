@@ -74,7 +74,7 @@ describe('instrument', function() {
                 res.should.have.status(201);
                 res.should.be.json;
                 res.body.should.be.a('object');
-                res.body.should.have.property('id');
+                res.body.should.have.property('itemNum');
                 res.body.model.should.be.a('string');
                 res.body.company.should.be.a('string');
                 res.body.loc.should.be.a('string');
@@ -95,7 +95,7 @@ describe('instrument', function() {
                 res.should.have.status(201);
                 res.should.be.json;
                 res.body.should.be.a('object');
-                res.body.should.have.property('id');
+                res.body.should.have.property('itemNum');
                 res.body.model.should.be.a('string');
                 res.body.company.should.be.a('string');
                 res.body.loc.should.be.a('string');
@@ -107,16 +107,16 @@ describe('instrument', function() {
     it('should delete an item on delete', function(done) {
         chai.request(app)
             .delete('/instruments/0010')
-            .send({'id': 8})
+            .send({'itemNum': 8})
             .end(function(err,res) {
                 should.equal(err, null);
                 res.should.have.status(200);
                 res.should.be.json;
                 res.body.should.be.a('object');
                 res.body.should.have.property('location');
-                res.body.should.have.property('id');
+                res.body.should.have.property('itemNum');
                 res.body.should.have.property('company');
-                res.body.id.should.be.a('number');
+                res.body.itemNum.should.be.a('number');
                 res.body.model.should.equal('M40 HMI Fresnel');
             }); 
             done();

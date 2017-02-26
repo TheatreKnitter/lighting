@@ -19,9 +19,6 @@ var getInstruments = function(instrument) {
 		});
 	});
 	
-	function logResults(json){
-		console.log(json);
-	};
 };
 
 var showInstruments = function(instrument){
