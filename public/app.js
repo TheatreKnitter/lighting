@@ -8,14 +8,14 @@ var getInstruments = function() {
 		dataType: 'json',
 		type: "GET",
 		url:"/instruments",
-	})
-
-	.success(function(results){ 
-		$.each(results, function(instrument) {
-			var row = showInstruments(instrument);
-			$('table').append(row);
-		});
+		success: function(results){ 
+			$.each(results, function(instrument) {
+				var row = showInstruments(instrument);
+				$('table').append(row);
+			});
+		}
 	});
+
 	
 };
 
