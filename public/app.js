@@ -1,7 +1,5 @@
 $(document).ready(function(){
-	var instrument = $(this).find(itemNum)
-    showInstruments(instrument);
-    console.log(instrument);
+    showInstruments();
 });
 
 var getInstruments = function(instrument) {
@@ -27,6 +25,7 @@ var getInstruments = function(instrument) {
 };
 
 var showInstruments = function(instrument){
+	getInstruments();
 	var template = $('.templates').clone();
 	template.find('.results').append('<td class="itemNum"></td>');
 	template.find('.itemNum').text(instrument.itemNum);
@@ -40,4 +39,6 @@ var showInstruments = function(instrument){
 	$(".search").append(template);
 	template.removeClass("templates");
 	template.removeClass("hitden");
+	console.log(instrument);
+
 };
