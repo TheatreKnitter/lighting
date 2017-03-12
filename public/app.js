@@ -4,7 +4,8 @@ $(document).ready(function(){
 
 var state = {
 	currentInstruments: []
-}
+};
+
 
 var getInstruments = function() {
 
@@ -17,7 +18,6 @@ var getInstruments = function() {
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
 				state.currentInstruments.push(instrument);
-				console.log(instrument);
 			});
 		}
 	});
@@ -33,6 +33,7 @@ var showInstruments = function(instrument){
 	row.append('<td class="location">' + instrument.loc + '</td>');
 
 	console.log(state);
+	console.log(getInstruments);
 	return row;
 };
 
