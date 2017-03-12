@@ -1,5 +1,6 @@
 $(document).ready(function(){
     getInstruments();
+    logResults();
 });
 
 var state = {
@@ -33,8 +34,11 @@ var showInstruments = function(instrument){
 	row.append('<td class="location">' + instrument.loc + '</td>');
 
 	console.log(state);
-	console.log(getInstruments);
 	return row;
+};
+
+function logResults(json){
+		console.log(json);
 };
 
 /*var currentModels = [];
