@@ -17,6 +17,7 @@ var getInstruments = function() {
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
 				state.currentInstruments.push(instrument);
+				console.log(instrument);
 			});
 		}
 	});
