@@ -1,6 +1,5 @@
 $(document).ready(function(){
     getInstruments();
-    logResults();
 });
 
 var state = {
@@ -27,11 +26,11 @@ var getInstruments = function() {
 };
 
 var showInstruments = function(instrument){
-	var row = 'tr';
+	var row = '<tr>';
 	row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
 	row.concat('<td class="Model">' + instrument.model + ' </td>');
 	row.concat('<td class="Company">' + instrument.company + '</td>');
-	row.concat('<td class="location">' + instrument.loc + '</td>');
+	row.concat('<td class="location">' + instrument.loc + '</td></tr>');
 
 	console.log(state);
 	return row;
