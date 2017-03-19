@@ -25,7 +25,7 @@ var getInstruments = function() {
 				state.currentInstruments.push(instrument);
 				return showInstruments(instrument);
 			});
-			$('#instruments').html(instrumentshtml.join());
+			$('#instruments').append(instrumentshtml.join());
 		});
 
 	
@@ -36,7 +36,7 @@ var showInstruments = function(instrument){
 	row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
 	row = row.concat('<td class="Model">' + instrument.model + ' </td>');
 	row = row.concat('<td class="Company">' + instrument.company + '</td>');
-	row = row.concat('<td class="location">' + instrument.loc + '</td></tr>');
+	row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
 
 	console.log(state);
 	return row;
