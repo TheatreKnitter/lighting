@@ -5,7 +5,7 @@ const instrumentSchema = mongoose.Schema({
   company: {type: String},
   partNumber: {type: Number},
   itemNum: {type: Number},
-  location: {type: String}
+  loc: {type: String}
 });
 
 instrumentSchema.methods.apiRepr = function() {

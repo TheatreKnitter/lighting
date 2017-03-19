@@ -15,6 +15,7 @@ var getInstruments = function() {
 		url:"https://olympic-lighting.herokuapp.com/instruments"})
 		.done(function(results){ 
 			$.each(results.instruments, function(instrument) {
+				console.log(instrument);
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
 				state.currentInstruments.push(instrument);
