@@ -23,7 +23,7 @@ var getInstruments = function() {
 		}
 	});*/
 	
-	$.get("https://olympic-lighting.herokuapp.com/instruments",instruments);
+	$.get("https://olympic-lighting.herokuapp.com/instruments");
 	
 
 	
