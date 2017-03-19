@@ -22,27 +22,21 @@ var getInstruments = function() {
 			});
 		}
 	});
-	
-	//$.get("https://olympic-lighting.herokuapp.com/instruments");
-	
 
 	
 };
 
 var showInstruments = function(instrument){
-	var row = $('tr');
-	row.append('<td class="itemNum">' + instrument.itemNum + '</td>');
-	row.append('<td class="Model">' + instrument.model + ' </td>');
-	row.append('<td class="Company">' + instrument.company + '</td>');
-	row.append('<td class="location">' + instrument.loc + '</td>');
+	var row = 'tr';
+	row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
+	row.concat('<td class="Model">' + instrument.model + ' </td>');
+	row.concat('<td class="Company">' + instrument.company + '</td>');
+	row.concat('<td class="location">' + instrument.loc + '</td>');
 
 	console.log(state);
 	return row;
 };
 
-function logResults(json){
-		console.log(json);
-};
 
 /*var currentModels = [];
 var currentInstruments = [];
