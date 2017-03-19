@@ -12,15 +12,14 @@ var getInstruments = function() {
 	$.ajax({
 		dataType: 'json',
 		type: "GET",
-		url:"https://olympic-lighting.herokuapp.com/instruments",
-		success: function(results){ 
+		url:"https://olympic-lighting.herokuapp.com/instruments"})
+		.done(function(results){ 
 			$.each(results, function(instrument) {
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
 				state.currentInstruments.push(instrument);
 			});
-		}
-	});
+		});
 
 	
 };
