@@ -10,7 +10,7 @@ var state = {
 
 var getInstruments = function() {
 
-	/*$.ajax({
+	$.ajax({
 		dataType: 'json',
 		type: "GET",
 		url:"https://olympic-lighting.herokuapp.com/instruments",
@@ -21,9 +21,9 @@ var getInstruments = function() {
 				state.currentInstruments.push(instrument);
 			});
 		}
-	});*/
+	});
 	
-	$.get("https://olympic-lighting.herokuapp.com/instruments");
+	//$.get("https://olympic-lighting.herokuapp.com/instruments");
 	
 
 	
