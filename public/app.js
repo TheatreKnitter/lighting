@@ -10,10 +10,10 @@ var state = {
 
 var getInstruments = function() {
 
-	$.ajax({
+	/*$.ajax({
 		dataType: 'json',
 		type: "GET",
-		url:"/instruments",
+		url:"https://olympic-lighting.herokuapp.com/instruments",
 		success: function(results){ 
 			$.each(results, function(instrument) {
 				var row = showInstruments(instrument);
@@ -21,7 +21,10 @@ var getInstruments = function() {
 				state.currentInstruments.push(instrument);
 			});
 		}
-	});
+	});*/
+	
+	$.get("https://olympic-lighting.herokuapp.com/instruments",instruments);
+	
 
 	
 };
