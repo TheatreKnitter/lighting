@@ -14,12 +14,18 @@ var getInstruments = function() {
 		type: "GET",
 		url:"https://olympic-lighting.herokuapp.com/instruments"})
 		.done(function(results){ 
-			$.each(results.instruments, function(instrument) {
+			/*$.each(results.instruments, function(instrument) {
 				console.log(instrument);
 				var row = showInstruments(instrument);
 				$('#instruments').append(row);
 				state.currentInstruments.push(instrument);
+			});*/
+			var instrumentshtml = results.instruments.map(function(instrument){
+				console.log(instrument);
+				state.currentInstruments.push(instrument);
+				return showInstruments(instrument);
 			});
+			$('#instruments').html(instrumentshtml.join());
 		});
 
 	
