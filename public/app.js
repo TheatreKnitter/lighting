@@ -1,5 +1,6 @@
 $(document).ready(function(){
     getInstruments();
+    newInstrument();
 });
 
 var state = {
@@ -14,12 +15,6 @@ var getInstruments = function() {
 		type: "GET",
 		url:"https://olympic-lighting.herokuapp.com/instruments"})
 		.done(function(results){ 
-			/*$.each(results.instruments, function(instrument) {
-				console.log(instrument);
-				var row = showInstruments(instrument);
-				$('#instruments').append(row);
-				state.currentInstruments.push(instrument);
-			});*/
 			var instrumentshtml = results.instruments.map(function(instrument){
 				console.log(instrument);
 				state.currentInstruments.push(instrument);
@@ -44,7 +39,7 @@ var showInstruments = function(instrument){
 
 
 var currentModels = [];
-var currentInstruments = [];
+var currentCompany = [];
 var currentLocations = [];
 
 var current = [];
@@ -58,9 +53,9 @@ var newInstrument = function(instrument){
         type: 'GET',
         dataType: 'json'
     });
-    currentModels.push(models);
-    currentLocations.push(locations);
-    currentCompany.push(company);
+    currentModels.push(instrument.model);
+    currentLocations.push(instrument.location);
+    currentCompany.push(instrument.company);
     ajax.done(this.onGetinstruments.bind(this));
 
 };
