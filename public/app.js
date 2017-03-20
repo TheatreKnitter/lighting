@@ -63,4 +63,4 @@ var newInstrument = function(instrument){
     currentCompany.push(company);
     ajax.done(this.onGetinstruments.bind(this));
 
-}
+};
