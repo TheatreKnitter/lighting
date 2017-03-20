@@ -17,7 +17,7 @@ var getInstruments = function() {
 		.done(function(results){ 
 			var instrumentshtml = results.instruments.map(function(instrument){
 				console.log(instrument);
-				state.currentInstruments.push(instrument);
+				//state.currentInstruments.push(instrument);
 				return showInstruments(instrument);
 			});
 			$('#instruments').append(instrumentshtml.join());
