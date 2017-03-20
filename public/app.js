@@ -57,5 +57,8 @@ var newInstrument = function(instrument){
     currentLocations.push(instrument.location);
     currentCompany.push(instrument.company);
     ajax.done(this.onGetinstruments.bind(this));
+    return currentModels;
+    return currentLocations;
+    return currentCompany;
 
 };
