@@ -3,9 +3,9 @@ $(document).ready(function(){
     newInstrument();
 });
 
-var state = {
+/*var state = {
 	currentInstruments: []
-};
+};*/
 
 
 var getInstruments = function() {
@@ -33,7 +33,7 @@ var showInstruments = function(instrument){
 	row = row.concat('<td class="Company">' + instrument.company + '</td>');
 	row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
 
-	console.log(state);
+	//console.log(state);
 	return row;
 };
 
@@ -41,6 +41,7 @@ var showInstruments = function(instrument){
 var currentModels = [];
 var currentCompany = [];
 var currentLocations = [];
+var model = instrument.model;
 
 var current = [];
 $('#some_element:selected').each(function(index, selectedObj){
@@ -57,8 +58,8 @@ var newInstrument = function(instrument){
     currentLocations.push(instrument.location);
     currentCompany.push(instrument.company);
     ajax.done(this.onGetinstruments.bind(this));
-    return currentModels;
-    return currentLocations;
-    return currentCompany;
+    //return currentModels;
+    //return currentLocations;
+    //return currentCompany;
 
 };
