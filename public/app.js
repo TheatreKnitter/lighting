@@ -43,7 +43,7 @@ var showInstruments = function(instrument){
 };
 
 
-/*var currentModels = [];
+var currentModels = [];
 var currentInstruments = [];
 var currentLocations = [];
 
@@ -63,4 +63,4 @@ var newInstrument = function(instrument){
     currentCompany.push(company);
     ajax.done(this.onGetinstruments.bind(this));
 
-}*/
+}
