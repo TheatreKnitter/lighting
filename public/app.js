@@ -19,7 +19,7 @@ var getInstruments = function() {
 				//state.currentInstruments.push(instrument);
 				return showInstruments(instrument);
 			});
-			$('#instruments').append(instrumentshtml.join());
+			$('#data').append(instrumentshtml.join());
 		});
 
 	
