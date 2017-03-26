@@ -49,7 +49,7 @@ $('#some_element:selected').each(function(index, selectedObj){
 });
 
 var newInstrument = function(instrument){
-	$('table tr:last-child').after('<tr>...</tr><tr>...</tr>');	
+	$('#data tr:last-child').after('<tr>...</tr><tr>...</tr>');	
 	var ajax = $.ajax('/instruments', {
         type: 'GET',
         dataType: 'json'
