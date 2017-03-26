@@ -2,9 +2,9 @@ $(document).ready(function(){
     getInstruments();
 });
 
-/*var state = {
+var state = {
 	currentInstruments: []
-};*/
+};
 
 
 var getInstruments = function() {
@@ -14,30 +14,35 @@ var getInstruments = function() {
 		type: "GET",
 		url:"https://olympic-lighting.herokuapp.com/instruments"})
 		.done(function(results){ 
-			var instrumentshtml = results.instruments.map(function(instrument){
-				console.log(instrument);
-				//state.currentInstruments.push(instrument);
-				return showInstruments(instrument);
+			results.forEach(function(instrument){
+				state.currentInstruments.push(instrument);	
 			});
-			$('#data').append(instrumentshtml.join());
+			/*var instrumentshtml = results.instruments.map(function(instrument){
+				console.log(instrument);
+				state.currentInstruments.push(instrument);
+				
+			});
+			$('#data').append(instrumentshtml.join());*/
+			showInstruments(state);
 		});
 
 	
 };
 
-var showInstruments = function(instrument){
-	var row = '<tr>';
-	row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
-	row = row.concat('<td class="Model">' + instrument.model + ' </td>');
-	row = row.concat('<td class="Company">' + instrument.company + '</td>');
-	row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
+var showInstruments = function(state){
+	var instrumentshtml = state.currentInstruments.map(function(instrument){
+		var row = '<tr>';
+		row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
+		row = row.concat('<td class="Model">' + instrument.model + ' </td>');
+		row = row.concat('<td class="Company">' + instrument.company + '</td>');
+		row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
+		return row;
+	});
+	$('#data').append(instrumentshtml.join());
 
-	//console.log(state);
-	return row;
-	newInstrument();
 };
 
-
+/*
 var currentModels = [];
 var currentCompany = [];
 var currentLocations = [];
@@ -54,7 +59,7 @@ var newInstrument = function(instrument){
         type: 'GET',
         dataType: 'json'
     	.done(function(results){ 
-    		currentModels.push(instrument.model);
+    		currentModels.push(model);
     		currentLocations.push(instrument.location);
     		currentCompany.push(instrument.company);
     		this.onGetinstruments.bind(this);
@@ -64,3 +69,4 @@ var newInstrument = function(instrument){
     	})	
     });
 };
+*/
