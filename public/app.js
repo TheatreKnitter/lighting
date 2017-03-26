@@ -1,6 +1,5 @@
 $(document).ready(function(){
     getInstruments();
-    newInstrument();
 });
 
 /*var state = {
@@ -35,13 +34,14 @@ var showInstruments = function(instrument){
 
 	//console.log(state);
 	return row;
+	newInstrument();
 };
 
 
 var currentModels = [];
 var currentCompany = [];
 var currentLocations = [];
-var model = instrument.model;
+//var model = instrument.model;
 
 var current = [];
 $('#some_element:selected').each(function(index, selectedObj){
@@ -49,7 +49,7 @@ $('#some_element:selected').each(function(index, selectedObj){
 });
 
 var newInstrument = function(instrument){
-	$('table tr:last').after('<tr>...</tr><tr>...</tr>');	
+	$('table tr:last-child').after('<tr>...</tr><tr>...</tr>');	
 	var ajax = $.ajax('/instruments', {
         type: 'GET',
         dataType: 'json'

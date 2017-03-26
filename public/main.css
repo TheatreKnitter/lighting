@@ -15,3 +15,8 @@ tr:nth-child(even) {
 .hidden {
 	display: none;
 }
+
+table {
+    position: relative;
+    left: 50%;
+}
