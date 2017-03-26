@@ -53,13 +53,14 @@ var newInstrument = function(instrument){
 	var ajax = $.ajax('/instruments', {
         type: 'GET',
         dataType: 'json'
+    	.done(function(results){ 
+    		currentModels.push(instrument.model);
+    		currentLocations.push(instrument.location);
+    		currentCompany.push(instrument.company);
+    		this.onGetinstruments.bind(this);
+    		//return currentModels;
+    		//return currentLocations;
+    		//return currentCompany;
+    	})	
     });
-    currentModels.push(instrument.model);
-    currentLocations.push(instrument.location);
-    currentCompany.push(instrument.company);
-    ajax.done(this.onGetinstruments.bind(this));
-    //return currentModels;
-    //return currentLocations;
-    //return currentCompany;
-
 };
