@@ -14,7 +14,7 @@ var getInstruments = function() {
 		type: "GET",
 		url:"https://olympic-lighting.herokuapp.com/instruments"})
 		.done(function(results){ 
-			results.forEach(function(instrument){
+			results.instruments.forEach(function(instrument){
 				state.currentInstruments.push(instrument);	
 			});
 			/*var instrumentshtml = results.instruments.map(function(instrument){
