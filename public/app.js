@@ -30,6 +30,7 @@ var getInstruments = function() {
 };
 
 var showInstruments = function(state){
+	$('#data').empty();
 	var instrumentshtml = state.currentInstruments.map(function(instrument){
 		var row = '<tr>';
 		row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
@@ -47,6 +48,8 @@ var currentModels = [];
 var currentCompany = [];
 var currentLocations = [];
 //var model = instrument.model;
+
+state.currentInstruments.push({itemNum:'11', model: '10K', company: 'ETC', location: 'Studio'}
 
 var current = [];
 $('#some_element:selected').each(function(index, selectedObj){
