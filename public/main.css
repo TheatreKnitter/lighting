@@ -2,10 +2,20 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    position: relative;
+    left: 45%;
+}
+
 table, th, tb {
     border: 2px solid black;
     text-align: center;
     padding: 5px;
+}
+
+th {
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 tr:nth-child(even) {
