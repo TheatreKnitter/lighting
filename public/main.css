@@ -20,3 +20,9 @@ table {
     position: relative;
     left: 50%;
 }
+
+fieldset {
+    position: absolute;
+    width: 30%;
+    left: 50px;
+}
