@@ -1,6 +1,7 @@
 $(document).ready(function(){
     getInstruments();
     $('#newItem').submit(function(event){
+    	event.preventDefault();
     	createNewInstrument(state);	
     });
 });
