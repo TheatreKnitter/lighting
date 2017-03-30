@@ -45,16 +45,13 @@ var showInstruments = function(state){
 
 
 var newInstrument = function() {
-    this.items = [];
     this.itemList = $('.newItem');
     this.form = $('.add-item-form');
     this.form.submit(this.onAddItemSubmit.bind(this));
-    this.input = $('#new-id');
-    this.input = $('#new-model');
-    this.input = $('#new-company');
-    this.input = $('new-location');
-    var newId = parseInt(instrument.itemNum) + 1;
-    this.getItems();
+    this.input.itemNum = $('#new-id');
+    this.input.model = $('#new-model');
+    this.input.company = $('#new-company');
+    this.input.location = $('new-location');
 };
 newInstrument.prototype.onSubmit = function(event) {
     event.preventDefault();
