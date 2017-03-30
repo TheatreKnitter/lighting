@@ -11,6 +11,10 @@ h2 {
     left: 45%;
 }
 
+fieldset {
+    background-color: white;
+}
+
 table, th, tb {
     border: 2px solid black;
     text-align: center;
