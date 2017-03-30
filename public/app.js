@@ -50,7 +50,8 @@ var showInstruments = function(state){
 
 function createNewInstrument(state) {
     var item = {itemNum: $('#new-id').val(), model: $('#new-model').val(), company: $('#new-company').val(), loc: $('#new-location').val()};
-    var ajax = $.ajax('/instruments', {
+    var ajax = $.ajax({
+    	url: '/instruments',
         method: 'POST',
         data: JSON.stringify(item),
         contentType: 'application/json',
