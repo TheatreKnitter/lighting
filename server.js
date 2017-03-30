@@ -54,7 +54,7 @@ app.get('/instruments/:itemNum', (req, res) => {
 app.post('/instruments', (req,res) => {
   Instrument
     .create({
-      id: req.body.itemNum,
+      itemNum: req.body.itemNum,
       model: req.body.model,
       company: req.body.company,
       location: req.body.loc,
