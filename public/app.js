@@ -49,6 +49,7 @@ var newInstrument = function() {
     this.itemList = $('.newItem');
     this.form = $('.add-item-form');
     this.form.submit(this.onAddItemSubmit.bind(this));
+    this.input = $('#new-id');
     this.input = $('#new-model');
     this.input = $('#new-company');
     this.input = $('new-location');
