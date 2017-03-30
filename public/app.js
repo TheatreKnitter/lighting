@@ -50,10 +50,12 @@ var newInstrument = function() {
     this.form = $('.add-item-form');
     this.form.submit(this.onAddItemSubmit.bind(this));
     this.input = $('#new-model');
+    this.input = $('#new-company');
+    this.input = $('new-location');
     var newId = parseInt(instrument.itemNum) + 1;
     this.getItems();
 };
-newInstrument.prototype.onAddItemSubmit = function(event) {
+newInstrument.prototype.onSubmit = function(event) {
     event.preventDefault();
     if (value != '') {
         this.addItem(value);
@@ -62,7 +64,7 @@ newInstrument.prototype.onAddItemSubmit = function(event) {
 };
 
 newInstrument.prototype.addItem = function(name) {
-    var item = {itemNum: newId, model: 'model', company: 'company', location: 'location'};
+    var item = {itemNum: 'itemNum', model: 'model', company: 'company', location: 'location'};
     var ajax = $.ajax('/instruments', {
         type: 'POST',
         data: JSON.stringify(item),
