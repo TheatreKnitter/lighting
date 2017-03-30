@@ -1,5 +1,8 @@
 $(document).ready(function(){
     getInstruments();
+    $('#newItem').submit(function(event){
+    	createNewInstrument(state);	
+    });
 });
 
 var state = {
@@ -44,32 +47,16 @@ var showInstruments = function(state){
 };
 
 
-var newInstrument = function() {
-    this.itemList = $('.newItem');
-    this.form = $('.add-item-form');
-    this.form.submit(this.onAddItemSubmit.bind(this));
-    this.input.itemNum = $('#new-id');
-    this.input.model = $('#new-model');
-    this.input.company = $('#new-company');
-    this.input.location = $('new-location');
-};
-newInstrument.prototype.onSubmit = function(event) {
-    event.preventDefault();
-    if (value != '') {
-        this.addItem(value);
-    }
-    this.form[0].reset();
-};
-
-newInstrument.prototype.addItem = function(name) {
-    var item = {itemNum: 'itemNum', model: 'model', company: 'company', location: 'location'};
+function createNewInstrument(state) {
+    var item = {itemNum: $('#new-id').val(), model: $('#new-model').val(), company: $('#new-company').val(), location: $('new-location').val()};
     var ajax = $.ajax('/instruments', {
         type: 'POST',
         data: JSON.stringify(item),
         dataType: 'json',
     });
-    ajax.done(state.currentInstruments.push);
-};
+    ajax.done(state.currentInstruments.push(item));
+}
+
 
 /*
 var currentModels = [];
