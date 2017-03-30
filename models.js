@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const instrumentSchema = mongoose.Schema({
   model: {type: String},
   company: {type: String},
-  partNumber: {type: Number},
+  //partNumber: {type: Number},
   itemNum: {type: Number},
   loc: {type: String}
 });
@@ -13,7 +13,7 @@ instrumentSchema.methods.apiRepr = function() {
     itemNum: this.itemNum,
     model: this.model,
     company: this.company,
-    partNumber: this.partNumber,
+    //partNumber: this.partNumber,
     location: this.loc
   };
 };
