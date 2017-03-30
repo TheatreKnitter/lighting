@@ -43,6 +43,34 @@ var showInstruments = function(state){
 
 };
 
+
+var newInstrument = function() {
+    this.items = [];
+    this.itemList = $('.newItem');
+    this.form = $('.add-item-form');
+    this.form.submit(this.onAddItemSubmit.bind(this));
+    this.input = $('#new-model');
+    var newId = parseInt(instrument.itemNum) + 1;
+    this.getItems();
+};
+newInstrument.prototype.onAddItemSubmit = function(event) {
+    event.preventDefault();
+    if (value != '') {
+        this.addItem(value);
+    }
+    this.form[0].reset();
+};
+
+newInstrument.prototype.addItem = function(name) {
+    var item = {itemNum: newId, model: 'model', company: 'company', location: 'location'};
+    var ajax = $.ajax('/instruments', {
+        type: 'POST',
+        data: JSON.stringify(item),
+        dataType: 'json',
+    });
+    ajax.done(state.currentInstruments.push);
+};
+
 /*
 var currentModels = [];
 var currentCompany = [];
