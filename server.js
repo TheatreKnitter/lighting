@@ -52,6 +52,10 @@ app.get('/instruments/:itemNum', (req, res) => {
 
 
 app.post('/instruments', (req,res) => {
+  if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
+  if (!('model' in req.body)) { return res.status(400).send('missing model'); }
+  if (!('company' in req.body)) { return res.status(400).send('missing company'); }
+  if (!('location' in req.body)) { return res.status(400).send('missing location'); }
   Instrument
     .create({
       itemNum: req.body.itemNum,
