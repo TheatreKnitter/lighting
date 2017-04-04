@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -10,7 +11,7 @@ const PORT = config.PORT;
 
 const app = express();
 app.use(express.static('public'));
-app.use(bodyParser.json());
+app.use(jsonParser);
 
 
 
@@ -36,7 +37,8 @@ app.get('/instruments', (req, res) => {
 
 app.get('/instruments/:itemNum', (req, res) => {
   Instrument
-    .findByitemNum(req.params.itemNum)
+    //.findByitemNum(req.params.itemNum)
+    .find({itemNum: req.params.itemNum})
     .exec()
     .then(instruments => {
         res.json({
@@ -51,7 +53,7 @@ app.get('/instruments/:itemNum', (req, res) => {
 });
 
 
-app.post('/instruments', (req,res) => {
+app.post('/instruments', jsonParser, (req,res) => {
   if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
   if (!('model' in req.body)) { return res.status(400).send('missing model'); }
   if (!('company' in req.body)) { return res.status(400).send('missing company'); }
