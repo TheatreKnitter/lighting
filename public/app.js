@@ -16,7 +16,7 @@ var getInstruments = function() {
 	$.ajax({
 		dataType: 'json',
 		type: "GET",
-		url:"https://olympic-lighting.herokuapp.com/instruments"})
+		url:"/instruments"})
 		.done(function(results){ 
 			results.instruments.forEach(function(instrument){
 				state.currentInstruments.push(instrument);	

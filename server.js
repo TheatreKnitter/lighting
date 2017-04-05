@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const express = require('express');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
@@ -36,7 +37,7 @@ app.get('/instruments', (req, res) => {
 
 app.get('/instruments/:itemNum', (req, res) => {
   Instrument
-    .findByitemNum(req.params.itemNum)
+    .findOneAndUpdate(req.params.itemNum)
     .exec()
     .then(instruments => {
         res.json({
@@ -51,7 +52,8 @@ app.get('/instruments/:itemNum', (req, res) => {
 });
 
 
-app.post('/instruments', (req,res) => {
+app.post('/instruments', jsonParser, (req, res) => {
+  console.log(req.body);
   if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
   if (!('model' in req.body)) { return res.status(400).send('missing model'); }
   if (!('company' in req.body)) { return res.status(400).send('missing company'); }
@@ -70,7 +72,7 @@ app.post('/instruments', (req,res) => {
     });  
 });  
 
-app.put('/posts/:itemNum', (req, res) => {
+app.put('/instruments', (req, res) => {
   const updated = {};
   const updateableField = ['location'];
   updateableField.forEach(field => {
@@ -80,7 +82,7 @@ app.put('/posts/:itemNum', (req, res) => {
   });
 
   Instrument
-    .findByitemNumAndUpdate(req.params.itemNum, {$set: updated}, {new: true})
+    .findOneAndUpdate(req.params.itemNum, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
     .catch(err => res.status(500).json(err));
@@ -91,7 +93,7 @@ app.put('/posts/:itemNum', (req, res) => {
 
 app.delete('/posts/:itemNum', (req, res) => {
   Instrument
-    .findByitemNumAndRemove(req.params.itemNum)
+    .findOneAndRemove(req.params.itemNum)
     .exec()
     .then(() => {
       res.status(204).json({message: 'success'});

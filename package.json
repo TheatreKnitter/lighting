@@ -4,6 +4,7 @@
   "description": "node.js capstone for thinkful.com fullstack bootcamp",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "mocha"
   },
   "keywords": [
