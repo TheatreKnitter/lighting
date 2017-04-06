@@ -61,9 +61,24 @@ function createNewInstrument(state) {
     	state.currentInstruments.push(result);
     	showInstruments(state);
     });
-
-    
 }
+
+function updateInstrument(state) {
+	var update = {itemNum: $('#current-id').val(), loc: $('#update-location').val()};
+    var ajax = $.ajax({
+    	url: '/instruments',
+        method: 'PUT',
+        data: JSON.stringify(item),
+        contentType: 'application/json',
+        dataType: 'json',
+    });
+    ajax.done(function(result){
+    	console.log(update);
+    	state.currentInstruments.push(result);
+    	showInstruments(state);
+    });
+}
+
 
 
 /*

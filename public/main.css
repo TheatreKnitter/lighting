@@ -15,7 +15,7 @@ fieldset {
     background-color: white;
 }
 
-table, th, tb {
+table, th, td {
     border: 2px solid black;
     text-align: center;
     padding: 5px;
@@ -40,7 +40,8 @@ table {
 }
 
 fieldset {
-    position: absolute;
+    position: relative;
     width: 30%;
     left: 50px;
+    padding-top: 200px;
 }
