@@ -57,7 +57,12 @@ function createNewInstrument(state) {
         contentType: 'application/json',
         dataType: 'json',
     });
-    ajax.done(state.currentInstruments.push(item));
+    ajax.done(function(result){
+    	state.currentInstruments.push(result);
+    	showInstruments(state);
+    });
+
+    
 }
 
 

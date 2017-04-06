@@ -37,7 +37,7 @@ app.get('/instruments', (req, res) => {
 
 app.get('/instruments/:itemNum', (req, res) => {
   Instrument
-    .findOneAndUpdate(req.params.itemNum)
+    .find({itemNum: req.params.itemNum})
     .exec()
     .then(instruments => {
         res.json({
@@ -57,13 +57,13 @@ app.post('/instruments', jsonParser, (req, res) => {
   if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
   if (!('model' in req.body)) { return res.status(400).send('missing model'); }
   if (!('company' in req.body)) { return res.status(400).send('missing company'); }
-  if (!('location' in req.body)) { return res.status(400).send('missing location'); }
+  if (!('loc' in req.body)) { return res.status(400).send('missing location'); }
   Instrument
     .create({
       itemNum: req.body.itemNum,
       model: req.body.model,
       company: req.body.company,
-      location: req.body.loc,
+      loc: req.body.loc,
     })
     .then(Instrument => res.status(201).json(Instrument.apiRepr()))
     .catch(err => {

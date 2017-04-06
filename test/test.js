@@ -34,7 +34,7 @@ chai.use(chaiHttp);
 
 
 describe('instrument', function() {
-    /*it('should list items on GET', function(done) {
+    it('should list items on GET', function(done) {
         chai.request(app)
             .get('/instruments')
             .end(function(err, res) {
@@ -42,10 +42,10 @@ describe('instrument', function() {
                 res.should.have.status(201);
                 res.should.be.json;
                 res.body.instruments.should.be.instanceof('Array');
-                done();
+                
             });
-            
-    });*/
+            done();      
+    });
 
     
     it('should list one item on GET', function(done) {
