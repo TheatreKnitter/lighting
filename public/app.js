@@ -11,7 +11,15 @@ $(document).ready(function(){
 });
 
 var state = {
-	currentInstruments: []
+	currentInstruments: [],
+	updateStateItem: function(item) {
+		for (var i =0; i < this.currentInstruments.length -1; i++){
+			if (item.itemNum == this.currentInstruments[i]) {
+				this.currentInstruments[i].location = item.location;
+				break;
+			}
+		}
+	}
 };
 
 
@@ -78,7 +86,7 @@ function updateInstrument(state) {
     });
     ajax.done(function(result){
     	console.log(update);
-    	state.currentInstruments.push(result);
+    	state.updateStateItem(result);
     	showInstruments(state);
     });
 }

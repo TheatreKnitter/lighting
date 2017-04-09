@@ -74,19 +74,25 @@ app.post('/instruments', jsonParser, (req, res) => {
 
 app.put('/instruments', jsonParser, (req, res) => {
   console.log(req.body);
+  if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
+  if (!('loc' in req.body)) { return res.status(400).send('missing location'); }
   const updated = {};
-  const updateableField = ['location'];
+  const updateableField = ['loc'];
   updateableField.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
     }
   });
-
+  console.log(updated);
   Instrument
-    .findOneAndUpdate(req.params.itemNum, {$location: updated}, {new: true})
+    .findOneAndUpdate({"itemNum": req.body.itemNum}, {$set: updated})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
-    .catch(err => res.status(500).json(err));
+    .catch(
+      err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 });
 
 
@@ -94,7 +100,7 @@ app.put('/instruments', jsonParser, (req, res) => {
 
 app.delete('/instruments', (req, res) => {
   Instrument
-    .findOneAndRemove(req.params.itemNum)
+    .findOneAndRemove(req.body.itemNum)
     .exec()
     .then(() => {
       res.status(204).json({message: 'success'});
