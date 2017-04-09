@@ -75,7 +75,7 @@ app.post('/instruments', jsonParser, (req, res) => {
 app.put('/instruments', jsonParser, (req, res) => {
   console.log(req.body);
   const updated = {};
-  const updateableField = ['loc'];
+  const updateableField = ['location'];
   updateableField.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

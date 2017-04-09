@@ -4,6 +4,10 @@ $(document).ready(function(){
     	event.preventDefault();
     	createNewInstrument(state);	
     });
+    $('#updateItem').submit(function(event){
+    	event.preventDefault();
+    	updateInstrument(state);	
+    });
 });
 
 var state = {
@@ -68,7 +72,7 @@ function updateInstrument(state) {
     var ajax = $.ajax({
     	url: '/instruments',
         method: 'PUT',
-        data: JSON.stringify(item),
+        data: JSON.stringify(update),
         contentType: 'application/json',
         dataType: 'json',
     });
