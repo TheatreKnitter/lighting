@@ -13,12 +13,13 @@ $(document).ready(function(){
 var state = {
 	currentInstruments: [],
 	updateStateItem: function(item) {
-		for (var i =0; i < this.currentInstruments.length -1; i++){
-			if (item.itemNum == this.currentInstruments[i]) {
+		for (var i =0; i < this.currentInstruments.length; i++){
+			if (item.itemNum == this.currentInstruments[i].itemNum) {
 				this.currentInstruments[i].location = item.location;
 				break;
 			}
 		}
+		//window.history.pushState({url: "/instruments"}, '/instruments');
 	}
 };
 
@@ -46,7 +47,7 @@ var getInstruments = function() {
 };
 
 var showInstruments = function(state){
-	$('#data').empty();
+	$('#data').find("tr:gt(0)").remove();
 	var instrumentshtml = state.currentInstruments.map(function(instrument){
 		var row = '<tr>';
 		row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
@@ -86,8 +87,11 @@ function updateInstrument(state) {
     });
     ajax.done(function(result){
     	console.log(update);
+    	console.log(result);
     	state.updateStateItem(result);
     	showInstruments(state);
+
+
     });
 }
 

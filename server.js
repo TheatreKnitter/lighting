@@ -85,7 +85,7 @@ app.put('/instruments', jsonParser, (req, res) => {
   });
   console.log(updated);
   Instrument
-    .findOneAndUpdate({"itemNum": req.body.itemNum}, {$set: updated})
+    .findOneAndUpdate({"itemNum": req.body.itemNum}, {$set: updated}, {new: true})
     .exec()
     .then(updatedPost => res.status(201).json(updatedPost.apiRepr()))
     .catch(
@@ -94,7 +94,6 @@ app.put('/instruments', jsonParser, (req, res) => {
         res.status(500).json(err);
       });
 });
-
 
 
 
@@ -110,18 +109,6 @@ app.delete('/instruments', (req, res) => {
       res.status(500).json(err);
     });
 });
-
-
-/*  const updated = {};
-  const updateableFields = ['location', 'itemNum'];
-  updateableFields.forEach(field => {
-    if (field in req.body) {
-      updated[field] = req.body[field];
-    }
-  });
-
-*/
-
 
 
 
