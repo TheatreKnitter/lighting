@@ -97,9 +97,11 @@ app.put('/instruments', jsonParser, (req, res) => {
 
 
 
-app.delete('/instruments', (req, res) => {
+app.delete('/instruments', jsonParser, (req, res) => {
+  console.log(req.body);
+  if (!('itemNum' in req.body)) { return res.status(400).send('missing itemNum'); }
   Instrument
-    .findOneAndRemove(req.body.itemNum)
+    .findOneAndRemove({"itemNum": req.body.itemNum})
     .exec()
     .then(() => {
       res.status(204).json({message: 'success'});

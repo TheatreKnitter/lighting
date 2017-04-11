@@ -8,6 +8,10 @@ $(document).ready(function(){
     	event.preventDefault();
     	updateInstrument(state);	
     });
+    $('#deleteItem').submit(function(event){
+    	event.preventDefault();
+    	deleteInstrument(state);
+    });	
 });
 
 var state = {
@@ -19,7 +23,6 @@ var state = {
 				break;
 			}
 		}
-		//window.history.pushState({url: "/instruments"}, '/instruments');
 	}
 };
 
@@ -86,12 +89,27 @@ function updateInstrument(state) {
         dataType: 'json',
     });
     ajax.done(function(result){
-    	console.log(update);
-    	console.log(result);
+    	//console.log(update);
+    	//console.log(result);
     	state.updateStateItem(result);
     	showInstruments(state);
 
 
+    });
+}
+
+function deleteInstrument(state) {
+	var item = {itemNum: $('#delete-id').val()};
+    var ajax = $.ajax({
+    	url: '/instruments',
+        method: 'DELETE',
+        data: JSON.stringify(item),
+        contentType: 'application/json',
+        dataType: 'json',
+    });
+    ajax.done(function(result){
+    	state.updateStateItem(result);
+    	showInstruments(state);
     });
 }
 
