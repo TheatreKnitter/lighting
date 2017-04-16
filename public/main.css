@@ -6,9 +6,9 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2, p {
     position: relative;
-    left: 45%;
+    text-align: center;
 }
 
 fieldset {
@@ -18,7 +18,7 @@ fieldset {
 table, th, td {
     border: 2px solid black;
     text-align: center;
-    padding: 5px;
+    padding: 45px;
 }
 
 th {
@@ -36,12 +36,53 @@ tr:nth-child(even) {
 
 table {
     position: relative;
-    left: 50%;
+    /*left: 50%;*/
+    margin-top: 50px;
+    left: 25%;
+    width: 50%;
+    margin-bottom: 50px;
 }
 
 fieldset {
     position: relative;
     width: 30%;
     left: 50px;
-    padding-top: 200px;
+    margin-top: 50px;
+}
+
+button {
+    position: relative;
+    left: 35%
+
+}
+
+element.style {
+}
+jumbotron.css:2
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+scaffolding.less:32
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #b3b3b3;
+    background-color: #fff;
+}
+normalize.less:20
+body {
+    margin: 0;
+}
+bootstrap.css:1062
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+user agent stylesheet
+body {
+    display: block;
+    margin: 8px;
 }

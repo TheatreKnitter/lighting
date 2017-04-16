@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html>
     <head>
+
         <title>Olympic lighting inventory </title>
         <link rel="stylesheet" type="text/css" href="main.css">
 	    <link rel="stylesheet" type="text/css" href="normalise.css">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet"/>
+        
     </head>
     <body>
-        <h1>Welcome to the Olympic Lighting Database!</h1>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Sign in</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to the Olympic Lighting Database</h1>
+        <p>A inventory of instruments current used by the Olypmic lighting department to shed illumination on the event </p>
+      </div>
+    </div>
+
+    <div class="container">
+
+        
         <h2>Here are all the currently entered items:</h2>
         
         <button id="New">Add Instrument</button>
+        <button id="delete">Delete Item</button>
+        <button id="Update">Update Item</button>
+
         <form id = "newItem" class="hidden">
             <fieldset>
                 <legend>Add Instrument</legend>
@@ -21,7 +63,7 @@
             </fieldset>
         </form>
 
-        <button id="Update">Update Item</button>
+        
         <form id = "updateItem" class="hidden">
             <fieldset>
                 <legend>Update Location</legend>
@@ -31,7 +73,7 @@
             </fieldset>
         </form>
 
-        <button id="delete">Delete Item</button>
+
         <form id = "deleteItem" class="hidden">
             <fieldset>
                 <legend>Delete Instrument</legend>
@@ -61,6 +103,7 @@
         
         <script type="text/javascript"  src="https://code.jquery.com/jquery-3.1.0.js" ></script>
         <script type="text/javascript" src="app.js"></script>
-        <!--<script type="text/javascript" src="tablesorter.js"></script> -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="jquery.tablesorter.js"></script> 
     </body>
 </html>

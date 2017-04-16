@@ -27,6 +27,8 @@ $(document).ready(function(){
     }); 	
 });
 
+
+
 var state = {
 	currentInstruments: [],
 	updateStateItem: function(item) {
