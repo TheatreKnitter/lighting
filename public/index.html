@@ -8,28 +8,31 @@
     <body>
         <h1>Welcome to the Olympic Lighting Database!</h1>
         <h2>Here are all the currently entered items:</h2>
-    
-        <form id = "newItem">
+        
+        <button id="New">Add Instrument</button>
+        <form id = "newItem" class="hidden">
             <fieldset>
                 <legend>Add Instrument</legend>
                 Id: <input type="text" id = "new-id" required><br>
                 Model: <input type="text" id = "new-model" required><br>
                 Company: <input type="text" id = "new-company" required><br>
                 Location: <input type="text" id = "new-location" required><br>
-                <input type="submit">
+                <input type="submit" id="new">
             </fieldset>
         </form>
 
-        <form id = "updateItem">
+        <button id="Update">Update Item</button>
+        <form id = "updateItem" class="hidden">
             <fieldset>
                 <legend>Update Location</legend>
                 Id: <input type="text" id ="current-id" required><br> 
                 New Location: <input type="text" id ="update-location" required><br>
-                <input type="submit" name="Update"> 
+                <input type="submit" name="Update" id="Update"> 
             </fieldset>
         </form>
 
-        <form id = "deleteItem">
+        <button id="delete">Delete Item</button>
+        <form id = "deleteItem" class="hidden">
             <fieldset>
                 <legend>Delete Instrument</legend>
                 Id: <input type="text" id ="delete-id" required><br> 
@@ -38,21 +41,26 @@
         </form>
     
         <table id = "data">
+        <thead>
             <tr>
                 <th> Id </th>
                 <th> Model </th>
                 <th> Company </th>
                 <th> Location </th>
-            </tr>    
+            </tr>
+        </thead>
+        <tbody>     
             <tr>
                 <td class= "Id templates hidden results"></td>
                 <td class= "Model templates hidden results"></td>
                 <td class= "Company templates hidden results"></td>
                 <td class= "Location templates hidden results"></td>
             </tr>
+        </tbody>    
         </table>
         
         <script type="text/javascript"  src="https://code.jquery.com/jquery-3.1.0.js" ></script>
         <script type="text/javascript" src="app.js"></script>
+        <!--<script type="text/javascript" src="tablesorter.js"></script> -->
     </body>
 </html>

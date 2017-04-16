@@ -2,16 +2,29 @@ $(document).ready(function(){
     getInstruments();
     $('#newItem').submit(function(event){
     	event.preventDefault();
-    	createNewInstrument(state);	
+    	createNewInstrument(state);
+        document.getElementById("newItem").reset();	
     });
     $('#updateItem').submit(function(event){
     	event.preventDefault();
-    	updateInstrument(state);	
+    	updateInstrument(state);
+        document.getElementById("updateItem").reset();	
     });
     $('#deleteItem').submit(function(event){
     	event.preventDefault();
     	deleteInstrument(state);
-    });	
+        document.getElementById("deleteItem").reset();
+    });
+    //$("#data").tablesorter( {sortList: [[0,0], [1,0]]} );
+    $("#New").click(function(){
+        $("#newItem").toggle();
+    });
+    $("#Update").click(function(){
+        $("#updateItem").toggle();
+    }); 
+    $("#delete").click(function(){
+        $("#deleteItem").toggle();
+    }); 	
 });
 
 var state = {
@@ -23,7 +36,16 @@ var state = {
 				break;
 			}
 		}
-	}
+	},
+    deleteStateItem: function(item) {
+        for (var i =0; i < this.currentInstruments.length; i++){
+            if (item.itemNum == this.currentInstruments[i].itemNum) {
+                var targetIndex = this.currentInstruments.indexOf(this.currentInstruments[i]);
+                this.currentInstruments.splice(targetIndex, 1);
+                break;
+            }
+        }
+    }
 };
 
 
@@ -99,16 +121,16 @@ function updateInstrument(state) {
 }
 
 function deleteInstrument(state) {
-	var item = {itemNum: $('#delete-id').val()};
+	var remove = {itemNum: $('#delete-id').val()};
     var ajax = $.ajax({
     	url: '/instruments',
         method: 'DELETE',
-        data: JSON.stringify(item),
+        data: JSON.stringify(remove),
         contentType: 'application/json',
         dataType: 'json',
     });
     ajax.done(function(result){
-    	state.updateStateItem(result);
+    	state.deleteStateItem(remove);
     	showInstruments(state);
     });
 }
