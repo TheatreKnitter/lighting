@@ -56,6 +56,17 @@ button {
 
 }
 
+.holder {
+    min-height: 180px;
+}
+
+footer {
+    background-color: #b3b3b3;
+    display: block;
+    min-height: 100px;
+    width: 100%;
+}
+
 element.style {
 }
 jumbotron.css:2
@@ -86,3 +97,4 @@ body {
     display: block;
     margin: 8px;
 }
+

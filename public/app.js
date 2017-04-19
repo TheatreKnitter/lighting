@@ -15,15 +15,17 @@ $(document).ready(function(){
     	deleteInstrument(state);
         document.getElementById("deleteItem").reset();
     });
-    //$("#data").tablesorter( {sortList: [[0,0], [1,0]]} );
+    $("#data").tablesorter();
     $("#New").click(function(){
-        $("#newItem").toggle();
+        $("#newItem").toggleClass('hidden');
+        //$("#updateItem").hide();
+        //$("#deleteItem").hide();
     });
     $("#Update").click(function(){
-        $("#updateItem").toggle();
+        $("#updateItem").toggleClass('hidden');
     }); 
     $("#delete").click(function(){
-        $("#deleteItem").toggle();
+        $("#deleteItem").toggleClass('hidden');
     }); 	
 });
 
@@ -61,12 +63,6 @@ var getInstruments = function() {
 			results.instruments.forEach(function(instrument){
 				state.currentInstruments.push(instrument);	
 			});
-			/*var instrumentshtml = results.instruments.map(function(instrument){
-				console.log(instrument);
-				state.currentInstruments.push(instrument);
-				
-			});
-			$('#data').append(instrumentshtml.join());*/
 			showInstruments(state);
 		});
 
@@ -138,34 +134,3 @@ function deleteInstrument(state) {
 }
 
 
-
-/*
-var currentModels = [];
-var currentCompany = [];
-var currentLocations = [];
-//var model = instrument.model;
-
-state.currentInstruments.push({itemNum:'11', model: '10K', company: 'ETC', location: 'Studio'}
-
-var current = [];
-$('#some_element:selected').each(function(index, selectedObj){
-    current[index] = $(selectedObj).text();
-});
-
-var newInstrument = function(instrument){
-	//$('#data tr:last-child').after('<tr>...</tr><tr>...</tr>');	
-	var ajax = $.ajax('/instruments', {
-        type: 'GET',
-        dataType: 'json'
-    	.done(function(results){ 
-    		currentModels.push(model);
-    		currentLocations.push(instrument.location);
-    		currentCompany.push(instrument.company);
-    		this.onGetinstruments.bind(this);
-    		//return currentModels;
-    		//return currentLocations;
-    		//return currentCompany;
-    	})	
-    });
-};
-*/
