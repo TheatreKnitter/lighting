@@ -15,7 +15,7 @@ $(document).ready(function(){
     	deleteInstrument(state);
         document.getElementById("deleteItem").reset();
     });
-    $("#data").tablesorter();
+    //$("#data").DataTable();
     $("#New").click(function(){
         $("#newItem").toggleClass('hidden');
         //$("#updateItem").hide();
@@ -69,8 +69,10 @@ var getInstruments = function() {
 	
 };
 
+var table = $('#data').DataTable();
+
 var showInstruments = function(state){
-	$('#data').find("tr:gt(0)").remove();
+	/*$('#data').find("tr:gt(0)").remove();
 	var instrumentshtml = state.currentInstruments.map(function(instrument){
 		var row = '<tr>';
 		row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
@@ -79,7 +81,14 @@ var showInstruments = function(state){
 		row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
 		return row;
 	});
-	$('#data').append(instrumentshtml.join());
+	$('#data').append(instrumentshtml.join());*/
+    table.clear(); //clear content
+
+    state.currentInstruments.forEach(function(instrument) {
+        table.row.add([instrument.itemNum, instrument.model, instrument.company, instrument.location]);
+    });
+
+   table.draw();//update display
 
 };
 
