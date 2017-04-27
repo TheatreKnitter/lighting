@@ -16,7 +16,7 @@ fieldset {
 }
 
 table, th, td {
-    border: 2px solid black;
+    border: 1px solid silver;
     text-align: center;
     /*padding: 45px;*/
 }
@@ -24,21 +24,24 @@ table, th, td {
 th {
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center !important;
+    padding-left: 30px !important;
+    background-color:  #D3D3D3;
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.hidden {
+/*.hidden {
 	display: none;
-}
+}*/
 
 table {
     position: relative;
     margin-top: 50px;
-    left: 20%;
-    width: 60%;
+    /*left: 10%;*/
+    width: 100%;
     margin-bottom: 150px;
 }
 
@@ -49,14 +52,15 @@ fieldset {
     margin-top: 50px;
 }
 
-button {
+.formless {
     position: relative;
-    left: 35%
+    left: 35%;
+    margin-top: 20px;
 
 }
 
 .holder {
-    min-height: 190px;
+    min-height: 80px;
 }
 
 footer {
@@ -105,8 +109,8 @@ th.sorting_asc {
     padding-top: 10px;
 }
 
-.data_filter {
-    display: none;
-}
 
+#data_wrapper {
+    padding: 0 150px;
+}
 

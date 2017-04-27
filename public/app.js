@@ -3,21 +3,21 @@ $(document).ready(function(){
     $('#newItem').submit(function(event){
     	event.preventDefault();
     	createNewInstrument(state);
-        document.getElementById("newItem").reset();	
+        document.getElementById("new").reset();	
     });
     $('#updateItem').submit(function(event){
     	event.preventDefault();
     	updateInstrument(state);
-        document.getElementById("updateItem").reset();	
+        document.getElementById("update").reset();	
     });
     $('#deleteItem').submit(function(event){
     	event.preventDefault();
     	deleteInstrument(state);
-        document.getElementById("deleteItem").reset();
+        document.getElementById("delete").reset();
     });
     //$("#data").DataTable();
     $("#New").click(function(){
-        $("#newItem").toggleClass('hidden');
+        //$("#newItem").toggleClass('hidden');
         //$("#updateItem").hide();
         //$("#deleteItem").hide();
     });
