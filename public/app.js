@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('#newItem').submit(function(event){
     	event.preventDefault();
     	createNewInstrument(state);
-        document.getElementById("new").reset();	
+        $("#new").reset();	
     });
     $('#updateItem').submit(function(event){
     	event.preventDefault();
@@ -16,7 +16,7 @@ $(document).ready(function(){
         document.getElementById("delete").reset();
     });
     //$("#data").DataTable();
-    $("#New").click(function(){
+    /*$("#New").click(function(){
         //$("#newItem").toggleClass('hidden');
         //$("#updateItem").hide();
         //$("#deleteItem").hide();
@@ -26,7 +26,7 @@ $(document).ready(function(){
     }); 
     $("#delete").click(function(){
         $("#deleteItem").toggleClass('hidden');
-    }); 	
+    }); */	
 });
 
 

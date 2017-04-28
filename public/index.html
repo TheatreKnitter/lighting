@@ -54,11 +54,11 @@
         
         <h2>Here are all the currently entered items:</h2>
         
-        <button type="button"  class="btn formless" data-toggle="modal" data-target="#new">Add Instrument</button>
-        <button type="button" class="btn formless" date-toggle="modal" data-target="#delete">Delete Item</button>
-        <button type="button" class="btn formless" date-toggle="modal" data-target="#Update">Update Item</button>
+        <button type="button"  class="btn formless" data-toggle="modal" data-target="#new-instrument">Add Instrument</button>
+        <button type="button" class="btn formless" date-toggle="modal" data-target="#delete-instrument">Delete Item</button>
+        <button type="button" class="btn formless" date-toggle="modal" data-target="#Update-instrument">Update Item</button>
 
-        <div class="modal" id="new">
+        <div class="modal fade" id="new-instrument">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -66,20 +66,24 @@
                         <h4 class="modal-title">Add Instrument</h4>
                     </div>
                     <div class="modal-body">
-                    Id: <input type="text" id = "new-id" required><br>
-                    Model: <input type="text" id = "new-model" required><br>
-                    Company: <input type="text" id = "new-company" required><br>
-                    Location: <input type="text" id = "new-location" required><br>
+                        <form id = "newItem" role="form">
+                            Id: <input type="text" id = "new-id" required><br>
+                            Model: <input type="text" id = "new-model" required><br>
+                            Company: <input type="text" id = "new-company" required><br>
+                            Location: <input type="text" id = "new-location" required><br>
+                            <br>
+                            <button type="submit" class="btn" id="new">Save changes</button>
+                        </form>    
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
-                    <button type="submit" id="newItem" class="btn">Save changes</button>
+                    
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="modal" id="delete">
+        <div class="modal fade" id="delete-instrument">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -87,17 +91,20 @@
                         <h4 class="modal-title">Delete Instrument</h4>
                     </div>
                     <div class="modal-body">
-                    Id: <input type="text" id ="delete-id" required><br> 
+                        <form id = "deleteItem">
+                            Id: <input type="text" id ="delete-id" required><br>
+                            <br>
+                            <button type="submit" id="delete" class="btn">Save changes</button>
+                        </form>     
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
-                    <button type="submit" id="deleteItem" class="btn">Save changes</button>
                     </div>
                 </div>
             </div>
         </div>   
 
-        <div class="modal" id="Update">
+        <div class="modal fade" id="Update-instrument">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -105,12 +112,15 @@
                         <h4 class="modal-title">Update Instrument</h4>
                     </div>
                     <div class="modal-body">
-                    Id: <input type="text" id ="current-id" required><br> 
-                    New Location: <input type="text" id ="update-location" required><br>
+                        <form id = "updateItem">
+                            Id: <input type="text" id ="current-id" required><br> 
+                            New Location: <input type="text" id ="update-location" required><br>
+                            <br>
+                            <button type="submit" id="update" class="btn">Save changes</button>
+                        </form>    
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn" data-dismiss="modal">Close</button>
-                    <button type="submit" id="updateItem" class="btn">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -119,7 +129,7 @@
 
 
         <div class="holder">
-            <!--<form id = "newItem" class="modal fade" role="dialog">
+            <!--<form id = "newItem">
                 <fieldset>
                     <legend>Add Instrument</legend>
                     Id: <input type="text" id = "new-id" required><br>
