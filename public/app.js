@@ -3,17 +3,26 @@ $(document).ready(function(){
     $('#newItem').submit(function(event){
     	event.preventDefault();
     	createNewInstrument(state);
-        $("#new").reset();	
+        //$("#new").reset();	
     });
     $('#updateItem').submit(function(event){
     	event.preventDefault();
     	updateInstrument(state);
-        document.getElementById("update").reset();	
+        //document.getElementById("update").reset();	
     });
     $('#deleteItem').submit(function(event){
     	event.preventDefault();
     	deleteInstrument(state);
-        document.getElementById("delete").reset();
+        //document.getElementById("delete").reset();
+    });
+    $('#new-instrument').on('hidden.bs.modal', function(){
+        $(this).find('form')[0].reset();
+    });
+    $('#delete-instrument').on('hidden.bs.modal', function(){
+        $(this).find('form')[0].reset();
+    });
+    $('#update-instrument').on('hidden.bs.modal', function(){
+        $(this).find('form')[0].reset();
     });
     //$("#data").DataTable();
     /*$("#New").click(function(){

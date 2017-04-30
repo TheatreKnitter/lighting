@@ -4,7 +4,7 @@ const instrumentSchema = mongoose.Schema({
   model: {type: String},
   company: {type: String},
   //partNumber: {type: Number},
-  itemNum: {type: Number},
+  itemNum: {type: Number, unique: true},
   loc: {type: String}
 });
 
