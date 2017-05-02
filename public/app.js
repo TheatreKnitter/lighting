@@ -15,13 +15,14 @@ $(document).ready(function(){
     	deleteInstrument(state);
         //document.getElementById("delete").reset();
     });
-    $('#new-instrument').on('hidden.bs.modal', function(){
+    $('#new-instrument').on('submit', function(){
+        $(this).find('form')[0].reset();
+        alert('Instrument Added');
+    });
+    $('#delete-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
     });
-    $('#delete-instrument').on('hidden.bs.modal', function(){
-        $(this).find('form')[0].reset();
-    });
-    $('#update-instrument').on('hidden.bs.modal', function(){
+    $('#update-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
     });
     //$("#data").DataTable();

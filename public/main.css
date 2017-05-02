@@ -63,6 +63,10 @@ fieldset {
     min-height: 80px;
 }
 
+input {
+    margin: 4px !important;
+}
+
 footer {
     background-color: #b3b3b3;
     position: relative;
