@@ -17,13 +17,16 @@ $(document).ready(function(){
     });
     $('#new-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
-        alert('Instrument Added');
+        //alert('Instrument Added');
+        $.bootstrapGrowl("Instrument Added");
     });
     $('#delete-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
+        $.bootstrapGrowl("Instrument Deleted");
     });
-    $('#update-instrument').on('submit', function(){
+    $('#Update-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
+        $.bootstrapGrowl("Instrument Updated");
     });
     //$("#data").DataTable();
     /*$("#New").click(function(){
