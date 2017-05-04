@@ -2,22 +2,18 @@ $(document).ready(function(){
     getInstruments();
     $('#newItem').submit(function(event){
     	event.preventDefault();
-    	createNewInstrument(state);
-        //$("#new").reset();	
+    	createNewInstrument(state);	
     });
     $('#updateItem').submit(function(event){
     	event.preventDefault();
     	updateInstrument(state);
-        //document.getElementById("update").reset();	
     });
     $('#deleteItem').submit(function(event){
     	event.preventDefault();
     	deleteInstrument(state);
-        //document.getElementById("delete").reset();
     });
     $('#new-instrument').on('submit', function(){
         $(this).find('form')[0].reset();
-        //alert('Instrument Added');
         $.bootstrapGrowl("Instrument Added");
     });
     $('#delete-instrument').on('submit', function(){
@@ -28,18 +24,6 @@ $(document).ready(function(){
         $(this).find('form')[0].reset();
         $.bootstrapGrowl("Instrument Updated");
     });
-    //$("#data").DataTable();
-    /*$("#New").click(function(){
-        //$("#newItem").toggleClass('hidden');
-        //$("#updateItem").hide();
-        //$("#deleteItem").hide();
-    });
-    $("#Update").click(function(){
-        $("#updateItem").toggleClass('hidden');
-    }); 
-    $("#delete").click(function(){
-        $("#deleteItem").toggleClass('hidden');
-    }); */	
 });
 
 
@@ -85,16 +69,6 @@ var getInstruments = function() {
 var table = $('#data').DataTable();
 
 var showInstruments = function(state){
-	/*$('#data').find("tr:gt(0)").remove();
-	var instrumentshtml = state.currentInstruments.map(function(instrument){
-		var row = '<tr>';
-		row = row.concat('<td class="itemNum">' + instrument.itemNum + '</td>');
-		row = row.concat('<td class="Model">' + instrument.model + ' </td>');
-		row = row.concat('<td class="Company">' + instrument.company + '</td>');
-		row = row.concat('<td class="location">' + instrument.location + '</td></tr>');
-		return row;
-	});
-	$('#data').append(instrumentshtml.join());*/
     table.clear(); //clear content
 
     state.currentInstruments.forEach(function(instrument) {
